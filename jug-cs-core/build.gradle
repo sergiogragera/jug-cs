@@ -1,0 +1,23 @@
+group 'com.fourtic'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+mainClassName = "com.fourtic.jugcs.HelloJugCS"
+
+run {
+    args "una cadena de texto", 1053, true, [1,2]
+}
