@@ -56,6 +56,35 @@
             </plugin>
 
             <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>yuicompressor-maven-plugin</artifactId>
+                <version>1.5.1</version>
+                <configuration>
+                    <preProcessAggregates>true</preProcessAggregates>
+                    <nosuffix>true</nosuffix>
+                    <aggregations>
+                        <aggregation>
+                            <insertNewLine>true</insertNewLine>
+                            <output>${basedir}/src/main/webapp/js/main.aggregation.js</output>
+                            <inputDir>${basedir}/src/main/webapp/js</inputDir>
+                            <includes>
+                                <include>hello.js</include>
+                                <include>bye.js</include>
+                            </includes>
+                        </aggregation>
+                    </aggregations>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>compress</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.4.0.RC3</version>

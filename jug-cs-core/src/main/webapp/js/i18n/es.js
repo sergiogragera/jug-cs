@@ -1,5 +1,6 @@
 var JUG_CS = {
     label: {
-        hello: "Hola"
+        hello: "Hola",
+        bye: "Hasta luego"
     }
 };
