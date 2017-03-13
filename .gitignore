@@ -1,5 +1,6 @@
 .gradle
 .idea
+build
 gradle
 gradlew
 gradlew.bat
@@ -7,3 +8,4 @@ gradlew.bat
 *target
 *.log
 *.sh
+*.aggregation.js
