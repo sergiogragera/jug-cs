@@ -9,8 +9,20 @@ apply plugin: 'jetty'
 sourceCompatibility = 1.8
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath group: 'com.eriwen', name: 'gradle-js-plugin', version: '1.12.1'
+    }
+}
+
+apply plugin: 'com.eriwen.gradle.js'
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
@@ -21,3 +33,36 @@ mainClassName = "com.fourtic.jugcs.HelloJugCS"
 run {
     args "una cadena de texto", 1053, true, [1,2]
 }
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+    }
+}
+
+combineJs {
+    println 'Combine JS'
+
+    source = ["${projectDir}/src/main/webapp/js/hello.js", "${projectDir}/src/main/webapp/js/bye.js"]
+    dest = file("${buildDir}/all.js")
+}
+
+minifyJs {
+    println 'Minify JS'
+
+    source = combineJs
+    dest = file("${buildDir}/all-min.js")
+}
+
+compileJava.finalizedBy(combineJs, minifyJs)
+
+/*jshint {
+    source = javascript.source.dev.js.files
+    //source = "${projectDir}/src/main/webapp/js/hello.js"
+    dest = file("${buildDir}/jshint.out")
+    reporter = 'checkstyle'
+    jshint.options = [expr: "true", unused: "true"]
+}*/
+
