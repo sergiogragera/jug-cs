@@ -33,11 +33,47 @@
             </plugin>-->
 
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>2.5</version>
+                <executions>
+                    <execution>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>com.fourtic</groupId>
+                <artifactId>jug-cs-maven-plugin</artifactId>
+                <version>0.0.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>jug-cs</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.5.0</version>
                 <executions>
                     <execution>
+                        <configuration>
+                            <arguments>
+                                <argument>una cadena de texto</argument>
+                                <argument>1053</argument>
+                                <argument>true</argument>
+                                <argument>[1, 2]</argument>
+                            </arguments>
+                        </configuration>
+                        <phase>test-compile</phase>
                         <goals>
                             <goal>java</goal>
                         </goals>
@@ -45,12 +81,6 @@
                 </executions>
                 <configuration>
                     <mainClass>com.fourtic.jugcs.HelloJugCS</mainClass>
-                    <arguments>
-                        <argument>una cadena de texto</argument>
-                        <argument>1053</argument>
-                        <argument>true</argument>
-                        <argument>[1, 2]</argument>
-                    </arguments>
                 </configuration>
             </plugin>
 

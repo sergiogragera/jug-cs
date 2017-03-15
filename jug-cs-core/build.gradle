@@ -16,13 +16,26 @@ repositories {
 buildscript {
     repositories {
         jcenter()
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url 'http://4tic.com:8080/nexus/content/groups/public'
+        }
     }
     dependencies {
         classpath group: 'com.eriwen', name: 'gradle-js-plugin', version: '1.12.1'
+        classpath("com.fourtic:lint-maven-plugin:0.0.3")
+        classpath("com.fourtic:jug-cs-plugin:1.0.0")
     }
 }
 
 apply plugin: 'com.eriwen.gradle.js'
+apply plugin: 'com.fourtic.lint-maven-plugin'
+apply plugin: 'com.fourtic.jug-cs-plugin'
+
+jugcs {
+    directory = "${buildDir}"
+}
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
