@@ -5,12 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.fourtic</groupId>
     <artifactId>jug-cs-core</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>jug-cs-core</name>
-
-    <dependencies>
-    </dependencies>
 
     <build>
         <finalName>jug-cs-core</finalName>
@@ -24,16 +21,6 @@
         <plugins>
             <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>-->
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>2.5</version>
                 <executions>
@@ -44,22 +31,9 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
 
-            <plugin>
-                <groupId>com.fourtic</groupId>
-                <artifactId>jug-cs-maven-plugin</artifactId>
-                <version>0.0.1</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>jug-cs</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
+            <!--<plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.5.0</version>
@@ -82,9 +56,9 @@
                 <configuration>
                     <mainClass>com.fourtic.jugcs.HelloJugCS</mainClass>
                 </configuration>
-            </plugin>
+            </plugin>-->
 
-            <plugin>
+            <!--<plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>yuicompressor-maven-plugin</artifactId>
                 <version>1.5.1</version>
@@ -114,9 +88,9 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
 
-            <plugin>
+            <!--<plugin>
                 <groupId>com.cj.jshintmojo</groupId>
                 <artifactId>jshint-maven-plugin</artifactId>
                 <version>1.6.0</version>
@@ -137,12 +111,28 @@
                     <reportFile>target/jshint.xml</reportFile>
                     <failOnError>true</failOnError>
                 </configuration>
-            </plugin>
+            </plugin>-->
 
-            <plugin>
+            <!--<plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.4.0.RC3</version>
+            </plugin>-->
+
+            <plugin>
+                <groupId>com.fourtic</groupId>
+                <artifactId>jug-cs-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>jugcs</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <directory>src/main/webapp</directory>
+                </configuration>
             </plugin>
         </plugins>
     </build>

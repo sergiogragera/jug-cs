@@ -12,7 +12,7 @@ import java.io.File;
  */
 @Mojo(name = "jugcs", defaultPhase = LifecyclePhase.COMPILE)
 public class JugCsMojo extends AbstractMojo {
-    @Parameter(property = "i18n.directory", defaultValue = "src/main/webapp")
+    @Parameter(property = "directory", defaultValue = "src/main/webapp")
     private String directory;
 
     @Override
