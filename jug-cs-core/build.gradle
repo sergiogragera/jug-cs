@@ -51,7 +51,7 @@ run {
 
 //compileJava.finalizedBy(combineJs, minifyJs)
 
-jugcs {
+/*jugcs {
     directory = "${buildDir}"
-}
+}*/
 
